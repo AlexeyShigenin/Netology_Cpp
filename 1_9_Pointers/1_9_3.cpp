@@ -34,9 +34,10 @@ int main(int argc, char** argv)
 
 void reverse(int* arr, int size)			// Реализация функции инверсии массива
 {
+	int tempVar;
 	for (int i = 0; i < size / 2; i++)		// Будет выполнено size/2 замен пар элементов массива от края к центру
 	{										// (т.к. переменная size имеет тип int, то при нецелочисленном
-		int tempVar = arr[i];				// делении size/2 - дробная часть будет отброшена)
+		tempVar = arr[i];					// делении size/2 - дробная часть будет отброшена)
 		arr[i] = arr[size - 1 - i];
 		arr[size - 1 - i] = tempVar;
 	}
