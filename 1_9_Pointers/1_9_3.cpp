@@ -15,9 +15,8 @@
 
 #include <iostream>
 
-void reverse(int*, int);					      // Прототип функции инверсии массива
-void swap(int*, int*);						      // Прототип функции замены пар элементов массива
-void print(int*, int);						      // Прототип функции печати массива
+void reverse(int*, int);					// Прототип функции инверсии массива
+void print(int*, int);						// Прототип функции печати массива
 
 int main(int argc, char** argv)
 {
@@ -25,30 +24,25 @@ int main(int argc, char** argv)
 
 	int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	std::cout << "До функции reverse: ";
-	print(array, 9);                      // Печать массива до инверсии
-	reverse(array, 9);                    // Инверсия массива
+	print(array, 9);						// Печать массива до инверсии
+	reverse(array, 9);						// Инверсия массива
 	std::cout << "После функции reverse: ";
-	print(array, 9);                      // Печать массива после инверсии
+	print(array, 9);						// Печать массива после инверсии
 	
 	return EXIT_SUCCESS;
 }
 
-void reverse(int* arr, int size)        // Реализация функции инверсии массива
+void reverse(int* arr, int size)			// Реализация функции инверсии массива
 {
 	for (int i = 0; i < size / 2; i++)		// Будет выполнено size/2 замен пар элементов массива от края к центру
-	{										                  // (т.к. переменная size имеет тип int, то при нецелочисленном
-		swap(&arr[i], &arr[size - 1 - i]);  // делении size/2 - дробная часть будет отброшена)
+	{										// (т.к. переменная size имеет тип int, то при нецелочисленном
+		int tempVar = arr[i];				// делении size/2 - дробная часть будет отброшена)
+		arr[i] = arr[size - 1 - i];
+		arr[size - 1 - i] = tempVar;
 	}
 }
 
-void swap(int* var1, int* var2)          // Реализация функции замены элементов массива
-{
-	int tempVar = *var1;
-	*var1 = *var2;
-	*var2 = tempVar;
-}
-
-void print(int* arr, int size)          // Реализация функции печати массива
+void print(int* arr, int size)				// Реализация функции печати массива
 {
 	for (int i = 0; i < size; i++)
 	{
