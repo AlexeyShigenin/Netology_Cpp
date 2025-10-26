@@ -1,4 +1,7 @@
-﻿// Первоначальная конфигурация игрового поля в файле "init.txt"
+﻿/*
+Первоначальная конфигурация игрового поля в файле "init.txt"
+*/
+
 #include <iostream>
 #include <fstream>
 #include "windows.h"
@@ -17,8 +20,8 @@ int main()
     setlocale(LC_ALL, "");  // Устанавливаем системную локаль
 
     int rows{}, columns{};  // Переменные для хранения размера игрового поля
-    int step{1};    // Переменная для хранения значения поколения
-    bool diff{1};   // Переменная для определения различий между поколениями
+    int step{ 1 };    // Переменная для хранения значения поколения
+    bool diff{ 1 };   // Переменная для определения различий между поколениями
 
     int** gameBoard = init_game_board(rows, columns);   // Создаем игровое поле и инициализируем его данными из файла
     int countLiving = summ_array(gameBoard, rows, columns); // Определяем количество живых клеток на поле
@@ -156,7 +159,7 @@ void print_game_status(int** array, int rows, int columns, int step, int countLi
     {
         for (int c = 0; c < columns; c++)
         {
-            std::cout << (array[r][c] == 1 ? '*': ' ') << "-";
+            std::cout << (array[r][c] == 1 ? '*' : ' ') << "-";
         }
         std::cout << std::endl;
     }
