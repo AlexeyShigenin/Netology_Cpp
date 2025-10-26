@@ -23,9 +23,9 @@ int main()
     int** gameBoard = init_game_board(rows, columns);   // Создаем игровое поле и инициализируем его данными из файла
     int countLiving = summ_array(gameBoard, rows, columns); // Определяем количество живых клеток на поле
     print_game_status(gameBoard, rows, columns, step, countLiving); // Выводим состояние игры в консоль
-    Sleep(1000);    // Пауза 1 секунда
 
     while (diff && countLiving) {  // Пока есть различия между генерациями и количество живых клеток на поле не равно нулю
+        Sleep(1000);    // Пауза 1 секунда
         step++; // Инкрементируем переменную поколения
         int** countLivingNeighbors = count_living_neighbors(gameBoard, rows, columns); // Создаем массив, где в элементах - количество живых соседей
         int** newGameBoard = new_game_board(gameBoard, countLivingNeighbors, rows, columns); // Создаем массив нового игрового поля на основе данных о соседях
@@ -34,7 +34,6 @@ int main()
         countLiving = summ_array(newGameBoard, rows, columns);  // Определяем сумму массива нового поля для определения наличия живых клеток
         std::system("CLS"); // Очистка экрана
         print_game_status(newGameBoard, rows, columns, step, countLiving);  // Выводим состояние игры в консоль
-        Sleep(1000);    // Пауза 1 секунда
         copy_game_board(newGameBoard, gameBoard, rows, columns);    // Копирование массива (элементы нового игрового поля становятся "старыми" элементами)
         delete_two_dim_array(newGameBoard, rows);   // Удаление неиспользуемого массива
     }
@@ -171,5 +170,4 @@ void delete_two_dim_array(int** array, int rows)    // Реализация фу
         delete[] array[r];  // очищаем каждый подмассив отдельно
     }
     delete[] array; // очищаем верхнеуровневый массив указателей
-
 }
