@@ -159,7 +159,7 @@ void print_game_status(int** array, int rows, int columns, int step, int countLi
     {
         for (int c = 0; c < columns; c++)
         {
-            std::cout << (array[r][c] == 1 ? '*' : ' ') << "-";
+            std::cout << (array[r][c] == 1 ? '*' : '-') << " ";
         }
         std::cout << std::endl;
     }
@@ -174,3 +174,4 @@ void delete_two_dim_array(int** array, int rows)    // Реализация фу
     }
     delete[] array; // очищаем верхнеуровневый массив указателей
 }
+
