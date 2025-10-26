@@ -34,7 +34,7 @@ int main()
         countLiving = summ_array(newGameBoard, rows, columns);  // Определяем сумму массива нового поля для определения наличия живых клеток
         std::system("CLS"); // Очистка экрана
         print_game_status(newGameBoard, rows, columns, step, countLiving);  // Выводим состояние игры в консоль
-        Sleep(1500);    // Пауза 1 секунда
+        Sleep(1000);    // Пауза 1 секунда
         copy_game_board(newGameBoard, gameBoard, rows, columns);    // Копирование массива (элементы нового игрового поля становятся "старыми" элементами)
         delete_two_dim_array(newGameBoard, rows);   // Удаление неиспользуемого массива
     }
@@ -171,4 +171,5 @@ void delete_two_dim_array(int** array, int rows)    // Реализация фу
         delete[] array[r];  // очищаем каждый подмассив отдельно
     }
     delete[] array; // очищаем верхнеуровневый массив указателей
+
 }
